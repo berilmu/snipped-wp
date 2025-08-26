@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HtmlEditor from '../views/HtmlEditor.vue'
 import FungsiTagPdiHtml from '../components/FungsiTagPdiHtml.vue'
 import EnterdiHtml from '../components/EnterdiHTML.vue'
@@ -24,9 +24,11 @@ const routes = [
 //   { path: '/js', component: JsEditor },
 ]
 
+
 const router = createRouter({
-  history: createWebHistory('/snipped-wp/'), // base sesuai repo
+  history: createWebHashHistory('/snipped-wp/'),
   routes,
 })
+
 
 export default router
