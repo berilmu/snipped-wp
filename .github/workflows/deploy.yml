@@ -1,35 +1,34 @@
-name: Deploy Vite to GitHub Pages
+name: Deploy Vue to cPanel FTP
 
 on:
   push:
     branches:
-      - main  # jalankan saat push ke branch main
+      - main  # Ganti kalau branch kamu bukan main, misal master
 
 jobs:
-  build-deploy:
+  ftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '22.16.0'  # Ganti kalau kamu pakai Node versi lain
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build Vite project
+      - name: Build project
         run: npm run build
 
-      - name: Copy index.html to 404.html
-        run: cp dist/index.html dist/404.html
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist  # Folder hasil build Vue, default biasanya dist
+          server-dir: public_html/project  # Ganti sesuai folder tujuan di hosting kamu
