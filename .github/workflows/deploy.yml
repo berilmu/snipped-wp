@@ -31,4 +31,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: dist/  # Folder hasil build Vue, default biasanya dist
-          server-dir: public_html/project  # Ganti sesuai folder tujuan di hosting kamu
+          server-dir: public_html/project/  # Ganti sesuai folder tujuan di hosting kamu
