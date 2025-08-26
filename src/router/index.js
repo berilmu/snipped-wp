@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HtmlEditor from '../views/HtmlEditor.vue'
 import Editor from '../components/FungsiTagPdiHtml.vue'
 // import CssEditor from '../views/CssEditor.vue'
@@ -18,8 +18,9 @@ const routes = [
 //   { path: '/js', component: JsEditor },
 ]
 
+
 const router = createRouter({
-  history: createWebHistory('/snipped-wp/'), // base path sesuai repo / subfolder
+  history: createWebHashHistory('/snipped-wp/'),
   routes,
 })
 
