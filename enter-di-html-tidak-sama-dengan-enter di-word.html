@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Live HTML Editor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .editor {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    textarea {
+      
+      height: 150px;
+      font-family: monospace;
+      font-size: 14px;
+      background: #1e1e1e;
+      color: #f8f8f2;
+      border: none;
+      padding: 15px;
+      border-radius: 6px;
+      resize: vertical;
+    }
+
+    .preview {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      min-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <!-- <h2>Live HTML Editor</h2> -->
+  
+  <div class="editor">
+    <textarea id="code" placeholder="Tulis kode HTML di sini...">
+<p>Ini baris pertama
+Ini baris kedua</p>
+    </textarea>
+
+    <div class="preview" id="preview"></div>
+  </div>
+
+  <script>
+    const textarea = document.getElementById("code");
+    const preview = document.getElementById("preview");
+
+    function updatePreview() {
+      preview.innerHTML = textarea.value;
+    }
+
+    // jalankan pertama kali
+    updatePreview();
+
+    // update setiap user mengetik
+    textarea.addEventListener("input", updatePreview);
+  </script>
+</body>
+</html>
