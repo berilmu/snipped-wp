@@ -4,5 +4,5 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/snipped-wp/'   // <-- ganti sesuai nama repo
+  base: '/project/'   // <-- ganti sesuai nama repo
 })
